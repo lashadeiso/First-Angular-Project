@@ -1,0 +1,58 @@
+<section class="col-md-10 m-auto">
+  <article class="col-md-9 m-auto">
+    <h1>Enter Home Work Data</h1>
+    <div class="form-group">
+      <label for="">HomeWorkName</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter here"
+        [(ngModel)]="homeWorkName"
+      />
+    </div>
+    <div class="form-group">
+      <label for="">Home Work Period</label>
+      <input
+        type="date"
+        class="form-control"
+        placeholder="Enter here"
+        [(ngModel)]="homeWorkPeriod"
+      />
+    </div>
+    <button class="btn btn-dark col-md-12 d-block" (click)="onHomeWorkSave()">
+      Save
+    </button>
+  </article>
+  <div class="form-group">
+    <button class="btn btn-success" (click)="saveGrades()">Save Scores</button>
+  </div>
+  <article class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Student</th>
+          <th *ngFor="let item of getAllHomeWorkNames()" scope="col">
+            {{ item }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let studentItem of students; let i = index"
+          [ngClass]="i < 3 ? 'top-students' : ''"
+        >
+          <th scope="row">
+            {{ studentItem.fullName }}
+          </th>
+          <td *ngFor="let work of studentItem.homeWorks" class="grade-inp-tr">
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="work.grade"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>

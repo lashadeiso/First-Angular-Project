@@ -1,0 +1,15 @@
+.form-group {
+  margin: 20px 0px;
+}
+
+section {
+  margin: 60px auto !important;
+}
+
+.grade-inp-tr {
+  max-width: 50px;
+}
+
+.top-students {
+  background-color: rgb(143, 182, 143);
+}
